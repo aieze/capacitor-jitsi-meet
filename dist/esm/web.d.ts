@@ -1,10 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 import { JitsiPlugin } from './definitions';
-
-export class JitsiWeb extends WebPlugin implements JitsiPlugin {
-
-  // @ts-ignore
-    async joinConference(options: {
+export declare class JitsiWeb extends WebPlugin implements JitsiPlugin {
+    joinConference(options: {
         roomName: string;
         url: string;
         token?: string;
@@ -23,18 +20,12 @@ export class JitsiWeb extends WebPlugin implements JitsiPlugin {
         screenSharingEnabled?: boolean;
         featureFlags?: any;
         configOverrides?: any;
-  }): Promise<{
+    }): Promise<{
         success?: boolean;
-  }> {
-      throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
-  };
-    // @ts-ignore
-  async leaveConference(options?: {}): Promise<{ success?: boolean; }> {
-      throw this.unavailable('the web implementation is not available. Please use Jitsi Meet API to implement Jitsi in web app');
-  };
+    }>;
+    leaveConference(options?: {}): Promise<{
+        success?: boolean;
+    }>;
 }
-
-const Jitsi = new JitsiWeb();
-
+declare const Jitsi: JitsiWeb;
 export { Jitsi };
-
